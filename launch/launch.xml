@@ -1,0 +1,17 @@
+<launch>
+  
+  <!-- <arg name="system_id"     default="mt001" /> -->
+  <arg name="system_id"   default="$(env MMPUG_SYSTEM_ID mt001)" />
+  <arg name="system_type"   default="$(env MMPUG_SYSTEM_TYPE rc)" />
+
+  <group>
+    <push-ros-namespace namespace="$(var system_id)"/>
+    <node pkg="drivers_core" exec="vesc_interface" name="vesc_interface_node" output="screen">
+    </node>
+  </group>
+  <!-- <node pkg="autonomy_executive" exec="local_joystick_command" name="joystick_cmd_node" output="screen">
+  </node> -->
+  <!-- <node pkg="demo_nodes_cpp" exec="talker" name="talker"/> -->
+
+</launch>
+
